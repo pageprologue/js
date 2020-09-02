@@ -14,7 +14,11 @@
     - 또한 객체는 pass-by-reference(참조에 의한 전달) 방식으로 전달된다.
 **/
 
-// number
+/ ************* 1. 원시 타입 (Primitive Data Type) ************* /
+
+// *********** //
+// (1) number  //
+// *********** //
 var integer = 10;        // 정수
 var double = 10.12;      // 실수
 var negative = -20;      // 음의 정수
@@ -52,3 +56,104 @@ console.log(nInf);  // -Infinity
 
 var nan = 1 * 'string'; // 산술 연산 불가
 console.log(nan);       // NaN
+
+
+// *********** //
+// (2) String  //
+// *********** //
+var str = "string"; // 큰 따옴표
+str = 'string';     // 작은 따옴표
+str = `string`;     // 백틱(ES6 템플릿 리터럴)
+
+var str = 'string';
+// 문자열은 유사배열이다.
+for (var i = 0; i < str.length; i++) {
+  console.log(str[i]);
+}
+
+// 문자열을 변경할 수 없다.
+str[0] = 'S';
+console.log(str); // string
+
+// str[0] = 'S'처럼 이미 생성된 문자열의 일부 문자를 변경해도 반영되지 않는다(이때 에러가 발생하지 않는다). 
+// 한번 생성된 문자열은 read only로서 변경할 수 없다. 이것을 변경 불가능(immutable)이라 한다.
+// 그러나 새로운 문자열을 재할당하는 것은 가능하다. 
+var str = 'string';
+console.log(str); // string
+
+str = 'String';
+console.log(str); // String
+
+str += ' test';
+console.log(str); // String test
+
+str = str.substring(0, 3);
+console.log(str); // Str
+
+str = str.toUpperCase();
+console.log(str); // STR
+
+
+// ************ //
+// (3) Boolean  //
+// ************ //
+var foo = true;
+var bar = false;
+
+// typeof 연산자는 타입을 나타내는 문자열을 반환한다.
+console.log(typeof foo); // boolean
+console.log(typeof bar); // boolean
+
+//비어있는 문자열과 null, undefined, 숫자 0은 false로 간주된다. 
+
+
+// ************** //
+// (4) undefined  //
+// ************** //
+// 선언 이후 값을 할당하지 않은 변수는 undefined 값을 가진다.
+// 변수의 값이 없다는 것을 명시하고 싶은 경우는 undefined를 할당하는 것이 아니라 null을 할당한다.
+var foo;
+console.log(foo); // undefined
+
+
+// ********* //
+// (5) null  //
+// ********* //
+// 자바스크립트는 대소문자를 구별(case-sensitive)하므로 null은 Null, NULL등과 다르다.
+// 프로그래밍 언어에서 null은 의도적으로 변수에 값이 없다는 것을 명시할 때 사용한다. 
+// 이는 변수가 기억하는 메모리 어드레스의 참조 정보를 제거하는 것을 의미하며 자바스크립트 엔진은 누구도 참조하지 않는 메모리 영역에 대해 가비지 콜렉션을 수행할 것이다.
+var foo = 'Lee';
+foo = null;  // 참조 정보가 제거됨
+
+// 또는 함수가 호출되었으나 유효한 값을 반환할 수 없는 경우, 명시적으로 null을 반환하기도 한다.
+var element = document.querySelector('.myElem');
+// HTML 문서에 myElem 클래스를 갖는 요소가 없다면 null을 반환한다.
+console.log(element); // null
+
+// 타입을 나타내는 문자열을 반환하는 typeof 연산자로 null 값을 연산해 보면 null이 아닌 object가 나온다. 
+// 이는 자바스크립트의 설계상의 오류이다.
+var foo = null;
+console.log(typeof foo); // object
+
+// 따라서 null 타입을 확인할 때 typeof 연산자를 사용하면 안되고 일치 연산자(===)를 사용하여야 한다.
+var foo = null;
+console.log(typeof foo === null); // false
+console.log(foo === null);        // true
+
+
+// *********** //
+// (6) symbol  //
+// *********** //
+// 심볼(symbol)은 ES6에서 새롭게 추가된 7번째 타입으로 변경 불가능한 원시 타입의 값이다. 
+// 심볼은 주로 이름의 충돌 위험이 없는 유일한 객체의 프로퍼티 키(property key)를 만들기 위해 사용한다. 
+// 심볼은 Symbol 함수를 호출해 생성한다. 이때 생성된 심볼 값은 다른 심볼 값들과 다른 유일한 심볼 값이다.
+// 심볼 key는 이름의 충돌 위험이 없는 유일한 객체의 프로퍼티 키
+var key = Symbol('key');
+console.log(typeof key); // symbol
+
+var obj = {};
+obj[key] = 'value';
+console.log(obj[key]); // value
+
+
+/ ************* 2.객체 타입  (Object type, Reference type) ************* /
