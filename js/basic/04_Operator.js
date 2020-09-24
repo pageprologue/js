@@ -143,3 +143,38 @@ console.log(result, x); // 5 5
 -'10' // -10
 -true // -1
 -false // -0
+
+/**
+ * 2. 문자열 연결 연산자: + 연산자는 피연산자 중 하나 이상이 문자열인 경우 문자열 연결 연산자로 동작한다.
+ */
+'1' + '2'     // '12'
+'1' + 2       // '12'
+
+// 암묵적 타입 변환(Implicit coercion) 또는 타입 강제 변환(Type coercion)
+1 + 2          // 3
+1 + true       // 2 (true → 1)
+1 + false      // 1 (false → 0)
+true + false   // 1 (true → 1 / false → 0)
+1 + null       // 1 (null → 0)
+1 + undefined  // NaN (undefined → NaN)
+
+/**
+ * 3. 할당 연산자(Assignment Operator): 우항에 있는 피연산자의 평가 결과를 좌항에 있는 변수에 할당한다.
+ */
+var x;
+x = 10;   // 10
+x += 5;   // 15
+x -= 5;   // 10
+x *= 5;   // 50
+x /= 5;   // 10
+x %= 5;   // 0
+
+var str = 'My name is ';
+str += 'Lee'; // My name is Lee
+
+// 할당 연산은 변수에 값을 할당하는 부수 효과만 있을 뿐 값으로 평가되지 않을 것처럼 보인다. 
+// 하지만 할당 연산은 하나의 값으로 평가되는 표현식이다. 할당 표현식은 할당된 값으로 평가된다. 
+var x, y;
+y = x = 10; // 연쇄 할당(Chained assignment)
+console.log(x, y); // 10 10
+
