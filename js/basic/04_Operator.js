@@ -77,3 +77,69 @@ x = 100; // 이 자체가 표현식이지만 완전한 문이기도 하다.
 var foo = x = 100;
 
 
+/ ************* 연산자 ************* /
+/**
+ * 연산자(Operator)는 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입 연산 등을 수행해 하나의 값을 만든다. 
+ */
+// 산술 연산자
+5 * 4 // 20
+
+// 문자열 연결 연산자
+'My name is ' + 'Lee' // "My name is Lee"
+
+// 할당 연산자
+var color = 'red'; // "red"
+
+// 비교 연산자
+3 > 5 // false
+
+// 논리 연산자
+(5 > 3) && (2 < 4)  // true
+
+// 타입 연산자
+typeof 'Hi' // "string"
+
+/**
+ * 1. 산술 연산자(Arithmetic Operator): 피연산자를 대상으로 수학적 계산을 수행해 새로운 숫자 값을 만든다. 
+ * 산술 연산을 할 수 없는 경우에는 NaN을 반환한다.
+ * 산술 연산자는 이항 산술 연산자와 단항 산술 연산자로 구분할 수 있다.
+ */
+// 이항 산술 연산자
+5 + 2  // 7
+5 - 2  // 3
+5 * 2  // 10
+5 / 2  // 2.5
+5 % 2  // 1
+
+// 단항 산술 연산자
+var x = 5, result;
+
+// 선대입 후증가 (Postfix increment operator)
+result = x++;
+console.log(result, x); // 5 6
+
+// 선증가 후대입 (Prefix increment operator)
+result = ++x;
+console.log(result, x); // 7 7
+
+// 선대입 후감소 (Postfix decrement operator)
+result = x--;
+console.log(result, x); // 7 6
+
+// 선감소 후대입 (Prefix decrement operator)
+result = --x;
+console.log(result, x); // 5 5
+
+// + 단항 연산자는 피연산자에 어떠한 효과도 없다. 음수를 양수로 반전하지도 않는다. 
+// 숫자 타입이 아닌 피연산자에 사용하면 피연산자를 숫자 타입으로 변환하여 반환한다.
++10 // 10
++'10' // 10
++true // 1
++false // 0
+
+// – 단항 연산자는 피연산자의 부호를 반전한 값을 반환한다.
+// 숫자 타입이 아닌 피연산자에 사용하면 피연산자를 숫자 타입으로 변환하여 반환한다. 
+-10 // -10
+-'10' // -10
+-true // -1
+-false // -0
